@@ -3,6 +3,7 @@ import ProyectoContext from "../../context/proyectos/ProyectoContext";
 import TareasContext from "../../context/tareas/TareasContext";
 
 const Tarea = ({ tarea }) => {
+  
   const proyectoContext = useContext(ProyectoContext);
   const { proyectoActual } = proyectoContext;
 
