@@ -16,7 +16,7 @@ const ProyectoState = (props) => {
 
   const proyectosOBJ = [
     { id: 1, nombre: "Tienda Virtual" },
-    { id: 2, nombre: "Internet" },
+    { id: 2, nombre: "jugador" },
     { id: 3, nombre: "Hogar" },
     { id: 4, nombre: "Paciencia" },
   ];

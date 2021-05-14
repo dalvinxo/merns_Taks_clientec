@@ -11,13 +11,13 @@ function App() {
   return (
     <ProyectoState>
       <TareasState>
-      <RouterAdmin>
-        <Switch>
-          <Route exact path="/" component={Login}></Route>
-          <Route exact path="/signup" component={Signup}></Route>
-          <Route exact path="/project" component={Project}></Route>
-        </Switch>
-      </RouterAdmin>
+        <RouterAdmin>
+          <Switch>
+            <Route exact path="/" component={Login}></Route>
+            <Route exact path="/signup" component={Signup}></Route>
+            <Route exact path="/project" component={Project}></Route>
+          </Switch>
+        </RouterAdmin>
       </TareasState>
     </ProyectoState>
   );
