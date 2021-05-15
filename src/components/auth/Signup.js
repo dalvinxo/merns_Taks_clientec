@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {Link} from 'react-router-dom';
+import AlertaContext from "../../context/alertas/alertaContext";
 
 const Signup = () => {
+
+  const alertaContext = useContext(AlertaContext);
+  const {alerta, mostrarAlerta} = alertaContext;
 
   const [newusuario, setNewUsuario] = useState({
     nombre: '',
@@ -24,11 +28,24 @@ const Signup = () => {
     e.preventDefault();
 
     // Validar que no haya campos vacios
-    
+    if(nombre.trim() === '' || 
+    email.trim() === '' ||
+    password.trim() === '' ||
+    confirmar.trim() === ''){
+      mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+      return;
+    }
 
     // Password minimo de 6 caracteres
+    if(password.length < 6){
+      mostrarAlerta('La contraseña debe tener minimo 6 caráctares', 'alerta-error');
+      return;
+    }
 
     // Verificacion de password
+    if(password !== confirmar) {
+      mostrarAlerta('Las contraseña no son iguales.', 'alerta-error');
+    }
 
     // Enviar datos
 
@@ -38,10 +55,13 @@ const Signup = () => {
 
   return (
     <div className="form-usuario">
+      {alerta? (
+        <div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>
+      ):null}
       <div className="contenedor-form sombra-dark">
         <h1>Registrar Cuenta</h1>
 
-        <form>
+        <form onSubmit={onSubmitNewUsuario}>
             
         <div className="campo-form">
             <label htmlFor="nombre">Nombre</label>
