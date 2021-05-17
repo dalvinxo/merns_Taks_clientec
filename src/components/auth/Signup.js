@@ -1,11 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 import AlertaContext from "../../context/alertas/alertaContext";
+import AuthContext from "../../context/autenticacion/authContext";
 
-const Signup = () => {
+
+const Signup = (props) => {
 
   const alertaContext = useContext(AlertaContext);
   const {alerta, mostrarAlerta} = alertaContext;
+
+  const authContext = useContext(AuthContext);
+  const {registrarUsuario, autenticacion, usuario, mensaje} = authContext;
+
+  //En caso de que el usuario este autentificado o registrado  o este registrado duplicado
+  useEffect(() => {
+    
+    if(autenticacion){
+      props.history.push('./project');
+    }
+
+    if(mensaje){
+      mostrarAlerta(mensaje.msg, 'alerta-error');
+    }
+
+  }, [mensaje, autenticacion])
 
   const [newusuario, setNewUsuario] = useState({
     nombre: '',
@@ -48,7 +66,11 @@ const Signup = () => {
     }
 
     // Enviar datos
-
+    registrarUsuario({
+      nombre,
+      email,
+      password
+    })
 
   }
 
@@ -120,7 +142,7 @@ const Signup = () => {
           </div>
 
          
-         <Link to={'/Login'} className="enlace-cuenta">
+         <Link to={'/'} className="enlace-cuenta">
          Iniciar Sesión
          </Link>
              

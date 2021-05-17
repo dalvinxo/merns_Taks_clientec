@@ -17,8 +17,6 @@ const Proyecto = ({ proyecto }) => {
 
   }
 
-
-
   return (
     <li>
       <button
