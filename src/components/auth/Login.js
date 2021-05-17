@@ -10,7 +10,7 @@ const Login = (props) => {
   const { alerta, mostrarAlerta } = alertaContext;
 
   const authContext = useContext(AuthContext);
-  const {autenticacion, mensaje, iniciarSesion } = authContext;
+  const {autenticacion, mensaje, iniciarSesion, usuarioAutenticado } = authContext;
 
   const [usuarioState, setUsuario] = useState({
     email: "",
@@ -18,11 +18,10 @@ const Login = (props) => {
   });
 
   useEffect(()=>{
-    
-    if(autenticacion){
-      props.history.push('./project');
-    }
 
+    if(autenticacion){
+      props.history.push('/project');
+    }
 
     if(mensaje){
       mostrarAlerta(mensaje.msg, mensaje.categoria);

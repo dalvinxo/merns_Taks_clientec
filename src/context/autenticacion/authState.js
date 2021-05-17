@@ -21,6 +21,7 @@ const AuthState = (props) => {
     autenticacion: null,
     usuario: null,
     mensaje: null,
+    cargando:true
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -109,9 +110,7 @@ const AuthState = (props) => {
     dispatch({
       type:CERRAR_SESION
     })
-
-  }
-
+  };
 
   return (
     <AuthContext.Provider
@@ -120,6 +119,7 @@ const AuthState = (props) => {
         autenticacion: state.autenticacion,
         usuario: state.usuario,
         mensaje: state.mensaje,
+        cargando: state.cargando,
         registrarUsuario,
         iniciarSesion,
         usuarioAutenticado,

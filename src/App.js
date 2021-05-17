@@ -8,16 +8,20 @@ import ProyectoState from "./context/proyectos/ProyectoState";
 import TareasState from "./context/tareas/TareasState";
 import AlertaState from "./context/alertas/alertaState";
 import AuthState from "./context/autenticacion/authState";
-import tokenAuth from './config/tokenAuth'
+import tokenAuth from "./config/tokenAuth";
+import RutaPrivada from "./rutas/RutaPrivada";
 
 // Revisar si tenemos un token
 const token = localStorage.getItem('token');
-
-if(token){
+if(token) {
   tokenAuth(token);
 }
 
+
+
 function App() {
+
+  
 
   return (
     <ProyectoState>
@@ -26,9 +30,9 @@ function App() {
           <AuthState>
             <RouterAdmin>
               <Switch>
-                <Route exact path="/" component={Login}></Route>
-                <Route exact path="/signup" component={Signup}></Route>
-                <Route exact path="/project" component={Project}></Route>
+                <Route exact path="/" component={Login} />
+                <Route exact path="/signup" component={Signup} />
+                <RutaPrivada exact path="/project" component={Project} />
               </Switch>
             </RouterAdmin>
           </AuthState>
