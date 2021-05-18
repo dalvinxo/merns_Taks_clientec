@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <aside>
       <h1>
-        MERN<span>Tasks</span>
+        Tus<span> Tareas</span>
       </h1>
 
       <NuevoProyecto />

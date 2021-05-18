@@ -15,10 +15,10 @@ const ListadoTarea = () => {
   // si no hay proyectos seleccionado
   if (!proyectoActual) return <h2>Seleccione un proyecto</h2>;
 
-  const { id, nombre } = proyectoActual[0];
+  const { _id, nombre } = proyectoActual[0];
 
   const eliminarProyectoClick = () => {
-    eliminarProyecto(id);
+    eliminarProyecto(_id);
   };
 
   return (
@@ -31,17 +31,15 @@ const ListadoTarea = () => {
             <p>No hay tareas</p>
           </li>
         ) : (
-          <TransitionGroup>
+          <div>
             {tareasProyectos.map((tarea) => (
-              <CSSTransition
-                key={tarea.id}
-                timeout={200}
-                classNames="tarea"
-              >
-                <Tarea tarea={tarea} />
-              </CSSTransition>
+              <TransitionGroup key={tarea._id} >
+                <CSSTransition timeout={200} classNames="tarea">
+                  <Tarea tarea={tarea} />
+                </CSSTransition>
+              </TransitionGroup>
             ))}
-          </TransitionGroup>
+          </div>
         )}
       </ul>
 

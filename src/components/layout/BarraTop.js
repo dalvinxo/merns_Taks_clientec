@@ -8,7 +8,8 @@ const BarraTop = () => {
 
   useEffect(() => {
     usuarioAutenticado();
-  }, []);
+    
+  }, [usuarioAutenticado]);
 
   return (
     <header className="app-header">

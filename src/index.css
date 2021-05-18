@@ -365,7 +365,16 @@ aside  {
 
 .enlace-cuenta:hover{
   opacity: .9;
+}
 
+.cerrar-sesion{
+  color: red;
+  font-size: 1.8rem;
+  padding: 0.3rem;
+  background: #1c2029;
+}
 
-
+.cerrar-sesion:hover{
+  color: rgb(201, 0, 0);
+  font-size: 1.82rem;
 }

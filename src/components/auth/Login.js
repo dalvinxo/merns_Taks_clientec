@@ -10,7 +10,7 @@ const Login = (props) => {
   const { alerta, mostrarAlerta } = alertaContext;
 
   const authContext = useContext(AuthContext);
-  const {autenticacion, mensaje, iniciarSesion, usuarioAutenticado } = authContext;
+  const {autenticacion, mensaje, iniciarSesion} = authContext;
 
   const [usuarioState, setUsuario] = useState({
     email: "",
@@ -26,7 +26,7 @@ const Login = (props) => {
     if(mensaje){
       mostrarAlerta(mensaje.msg, mensaje.categoria);
     }
-
+  // eslint-disable-next-line
   },[mensaje, autenticacion, props.history]);
 
 

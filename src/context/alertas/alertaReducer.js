@@ -1,6 +1,6 @@
 import {MOSTRAR_ALERTA, OCULTAR_ALERTA} from '../../types';
 
-export default (state, action)=>{
+const alertaReducer = (state, action)=>{
 
     switch(action.type){
 
@@ -20,3 +20,5 @@ export default (state, action)=>{
 
 
 }
+
+export default alertaReducer;

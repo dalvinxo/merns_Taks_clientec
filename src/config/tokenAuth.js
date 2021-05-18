@@ -1,4 +1,3 @@
-import React from "react";
 import clienteAxios from "./axios";
 
 const tokenAuth = (token) => {

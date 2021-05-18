@@ -10,7 +10,7 @@ const Signup = (props) => {
   const {alerta, mostrarAlerta} = alertaContext;
 
   const authContext = useContext(AuthContext);
-  const {registrarUsuario, autenticacion, usuario, mensaje} = authContext;
+  const {registrarUsuario, autenticacion, mensaje} = authContext;
 
   //En caso de que el usuario este autentificado o registrado  o este registrado duplicado
   useEffect(() => {
@@ -22,7 +22,7 @@ const Signup = (props) => {
     if(mensaje){
       mostrarAlerta(mensaje.msg, 'alerta-error');
     }
-
+// eslint-disable-next-line
   }, [mensaje, autenticacion])
 
   const [newusuario, setNewUsuario] = useState({

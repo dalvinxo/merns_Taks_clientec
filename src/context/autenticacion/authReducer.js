@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   REGISTRO_ERROR,
   LOGIN_EXITOSO,
@@ -9,7 +7,7 @@ import {
   OBTENER_DATOS,
 } from "../../types";
 
-export default (state, action) => {
+const authReducer = (state, action) => {
   switch (action.type) {
     case REGISTRO_EXITOSO:
     case LOGIN_EXITOSO:
@@ -46,3 +44,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default authReducer;
