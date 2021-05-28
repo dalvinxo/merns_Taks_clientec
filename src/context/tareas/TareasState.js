@@ -25,6 +25,7 @@ const TareasState = (props) => {
   const [state, dispatch] = useReducer(TareasReducer, stateInicial);
 
   const seleccionarTareaProyecto = async (proyecto) => {
+
     try {
       const resultado = await clienteAxios.get("/api/tareas", {
         params: { proyecto },
@@ -40,6 +41,7 @@ const TareasState = (props) => {
   };
 
   const agregarTarea = async (tareaobj) => {
+    
     try {
       const resultado = await clienteAxios.post("/api/tareas", tareaobj);
       // console.log(resultado.data.tarea,tareaobj);
